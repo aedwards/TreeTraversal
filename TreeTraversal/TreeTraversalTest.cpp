@@ -32,6 +32,10 @@ void main() {
 	myTree->preOrder(myTree->Root());
 	cout << endl;
 
+	cout << "\nLevel-order traversal" << endl;
+	myTree->levelOrder(myTree->Root());
+	cout << endl;
+
 	getchar();
 	
 }

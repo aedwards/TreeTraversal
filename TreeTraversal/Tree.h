@@ -1,8 +1,10 @@
 //Tree class  -- The main class that faciliates the creation, deletion and traversal of nodes in a binary tree.
 
 #include <iostream>
+#include <queue>		//a queue data structure is used to facilitate level order traversal
 using namespace std;
-#include "Node.h";
+#include "Node.h"
+
 
 class Tree {
 
@@ -103,6 +105,41 @@ public:
 			postOrder(n->Left());
 			postOrder(n->Right());
 			cout << n->Key() << " ";
+		}
+	}
+
+	//Print the tree in Level Order assisted by a Queue.
+	/*Steps for performing Level Order traversal.
+	  1. Visit the root.
+	  2. While traversing level L, keep all the elements at L+1 in Queue.
+	  3. Go to the next level and visit all the nodes at that level.
+	  4. Repeat this until all levels are completed.
+	*/
+	
+	void levelOrder(Node* n) {
+		//Create new queue of type Node (using the C++ STL)
+		queue<Node*> lOrderQueue;
+
+		//queue the root elment
+		lOrderQueue.push(n);
+
+		while(!lOrderQueue.empty()) {
+			//dequeue a node from the front of the queue
+			Node* temp = lOrderQueue.front();
+			cout << temp->Key() << " ";
+
+			//Enque the left children
+			if(temp->Left() != NULL) {
+				lOrderQueue.push(temp->Left());
+			}
+
+			//Enque the right children
+			if(temp->Right() != NULL) {
+				lOrderQueue.push(temp->Right());
+			}
+
+			//pop the visited node.
+			lOrderQueue.pop();
 		}
 	}
 

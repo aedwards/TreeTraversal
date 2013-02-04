@@ -77,6 +77,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Node.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="QueueExceptions.h" />
+    <ClInclude Include="QueueNode.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <ItemGroup>
