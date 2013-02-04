@@ -20,6 +20,11 @@ public:
 		 freeNode(root);
 	}
 
+	//return the root node
+	Node* Root() {
+		return root;
+	}
+
 	// Free the node
 	void freeNode(Node* leaf)
 	{
@@ -68,6 +73,36 @@ public:
 				n->setKey(key);
 				leaf->setRight(n);
 			}
+		}
+	}
+
+	//Print the tree In-Order
+	//Traverse the subtree, root, and right tree
+	void inOrder(Node* n) {
+		if(n) {
+			inOrder(n->Left());
+			cout << n->Key() << " ";
+			inOrder(n->Right());
+		}
+	}
+
+	//Print the tree Pre-order
+	//Traverse the root, left sub-tree, right-subtree
+	void preOrder(Node* n) {
+		if(n) {
+			cout << n->Key() << " ";
+			preOrder(n->Left());
+			preOrder(n->Right());
+		}
+	}
+
+	//Print the tree postOrder
+	//Traverse the left sub-tree, right sub-tree, root
+	void postOrder(Node* n) {
+		if(n) {
+			postOrder(n->Left());
+			postOrder(n->Right());
+			cout << n->Key() << " ";
 		}
 	}
 
